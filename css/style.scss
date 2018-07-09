@@ -1,0 +1,56 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #86c6ff;
+}
+
+.square__wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square--box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: 4;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    25% {transform: rotate(90deg)}
+    50% {transform: rotate(180deg)}
+    75% {transform: rotate(270deg)}   
+    100% {transform: rotate(360deg)}          
+}
+
+.square--text {
+    position: absolute; 
+    display: none;
+    right: 0;
+    width: max-content;
+}
+
+.right-move {
+    display: block;
+    animation-name: right-move;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes right-move {
+    from {right: 0}
+    to {right: -165px}
+}
+
