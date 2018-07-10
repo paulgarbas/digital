@@ -1,29 +1,50 @@
+// @import "hamburgers";
+* {
+    box-sizing: border-box;
+}
+
+
 html {
     height: 100%;
 }
 
 body {
+    font-family: arial;
+    color: #fff;
     height: 100%;
     background-color: #86c6ff;
 }
 
-.square__wrapper {
+.text-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+.square-text__wrapper {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.square--box {
-    position: relative;
+.square-text {
     display: flex;
     align-items: center;
+    position: relative;
+    height: 335px;
+    width: 335px;    
+    // border: 1px solid #fff;
+}
+
+.square {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     border: 1px solid #fff;
     width: 40px;
     height: 40px;
     animation-name: rotate;
-    animation-duration: 3s;
-    animation-iteration-count: 4;
+    animation-duration: 1s;
     animation-timing-function: linear;
 }
 
@@ -34,23 +55,78 @@ body {
     100% {transform: rotate(360deg)}          
 }
 
-.square--text {
+.text__wrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: -150px;
+    width: 297px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.text {
     position: absolute; 
     display: none;
-    right: 0;
+    right: 297px;
+    // border-right: 1px solid #fff;
+    padding: 11px 4px 11px 0;
     width: max-content;
+    font-size: 32px;
+}
+
+.collapsing-border {
+    display: block;
+    border-right: 1px solid #fff;
 }
 
 .right-move {
     display: block;
     animation-name: right-move;
-    animation-duration: 6s;
+    animation-duration: 2s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
 }
 
 @keyframes right-move {
-    from {right: 0}
-    to {right: -165px}
+    from {right: 297px}
+    to {right: 147px}
+}
+
+.left-move {
+    border-right: none;
+    animation-name: left-move;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;    
+}
+
+@keyframes left-move {
+    from {left: 0; right: 0px}
+    to {left: -40px; right: 376px;}
+}
+
+.growing-width {
+    animation-name: growing-width;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;    
+}
+@keyframes growing-width {
+    from {width: 297px}
+    to {width: 483px}
+}
+
+.collapsing-border {
+    animation-name: collapsing-border;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;    
+}
+
+@keyframes collapsing-border {
+    25% {transform: rotate(20deg)}
+    50% {transform: rotate(40deg)}
+    75% {transform: rotate(60deg)}    
 }
 

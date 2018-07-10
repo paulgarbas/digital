@@ -1,12 +1,23 @@
 "use strict";
 
-let squareBox = document.querySelector(".square--box");
-let squareText = document.querySelector(".square--text");
+let square = document.querySelector(".square");
+let text = document.querySelector(".text");
+let textWrapper = document.querySelector(".text__wrapper");
+let executed = false;
 
-squareBox.addEventListener("animationend", endFunction);
+square.addEventListener("animationend", squareAnimationEnd);
+text.addEventListener("animationend", textAnimationEnd);
 
-function endFunction() {
-    squareBox.style.borderRight = "none";
-    squareText.className += " right-move";
+function squareAnimationEnd() {
+    if (!executed) {
+        text.className += " right-move"; 
+        square.className += " left-move";
+        textWrapper.className += " growing-width";
+    }
+    executed = true;
+}
+
+function textAnimationEnd() {
+    text.className += " collapsing-border";
 }
 
