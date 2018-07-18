@@ -1,4 +1,4 @@
-$hamburger-layer-color: #fff;
+@import "../hamburgers/hamburgers-settings";
 @import "../hamburgers/hamburgers";
 
 // General
@@ -26,6 +26,20 @@ canvas{
     z-index: -1;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+    }
+}
+
 .body-bg {
     opacity: 1;
 }
@@ -37,8 +51,92 @@ canvas{
 
 // Header
 header {
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        
+        li:last-child {
+            margin-left: 30px;
+        }
+        
+        .nav-home {
+            animation-name: nav-home-fade-in; 
+            animation-duration: 1s;
+            animation-delay: 0.4s;
+            animation-fill-mode: forwards;    
+        }
+        
+        @keyframes nav-home-fade-in {
+            0% {opacity: 0; transform: translateX(160px)}
+            33% {opacity: 0}
+            66% {opacity: 0.5}
+            100% {opacity: 1}
+        }
+
+        .nav-about-us {
+            animation-name: nav-about-us-fade-in; 
+            animation-duration: 1s;
+            animation-delay: 0.3s;            
+            animation-fill-mode: forwards;    
+        }
+        
+        @keyframes nav-about-us-fade-in {
+            0% {opacity: 0; transform: translateX(130px)}
+            33% {opacity: 0}
+            66% {opacity: 0.6}
+            100% {opacity: 1}
+        }
+
+        .nav-services {
+            animation-name: nav-services-fade-in; 
+            animation-duration: 1s;
+            animation-delay: 0.2s;            
+            animation-fill-mode: forwards;    
+        }
+        
+        @keyframes nav-services-fade-in {
+            0% {opacity: 0; transform: translateX(100px)}
+            33% {opacity: 0}
+            66% {opacity: 0.7}
+            100% {opacity: 1}
+        }
+
+        .nav-testimonials {
+            animation-name: nav-testimonials-fade-in; 
+            animation-duration: 1s;
+            animation-delay: 0.1s;            
+            animation-fill-mode: forwards;    
+        }
+        
+        @keyframes nav-testimonials-fade-in {
+            0% {opacity: 0; transform: translateX(70px)}
+            33% {opacity: 0}
+            66% {opacity: 0.8}
+            100% {opacity: 1}
+        }
+
+        .nav-contacts {
+            animation-name: nav-contacts-fade-in; 
+            animation-duration: 1s;
+            animation-fill-mode: forwards;    
+        }
+        
+        @keyframes nav-contacts-fade-in {
+            0% {opacity: 0; transform: translateX(40px)}
+            33% {opacity: 0}
+            66% {opacity: 0.9}
+            100% {opacity: 1}
+        }
+        
+        a {
+            display: block;
+            padding: 8px 15px;
+            text-transform: capitalize;
+        }
+    }
+
     button {
-        float: right;
         outline: none;
     }
 }
