@@ -26,17 +26,17 @@ canvas{
     z-index: -1;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 ul {
     margin: 0;
     padding: 0;
 
     li {
         list-style: none;
-
-        a {
-            text-decoration: none;
-            color: #fff;
-        }
     }
 }
 
@@ -53,7 +53,7 @@ ul {
 header {
 
     nav {
-        position: absolute;
+        position: fixed;
         left: 0;
         right: 0;
     }
@@ -63,6 +63,29 @@ header {
         a {
             display: block;
             text-transform: capitalize;
+        }
+    }
+
+    .small-logo {       
+        position: fixed;
+        height: 48px;
+        padding: 8px 0 0 15px;
+        display: none;
+        
+        .small-logo-img {
+            height: 100%;
+            opacity: 0;
+        }
+
+        .small-logo-animation {
+            animation-name: small-logo-fade-in;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes small-logo-fade-in {
+            0% {opacity: 0}
+            100% {opacity: 1}
         }
     }
     
@@ -77,8 +100,14 @@ header {
         }
 
         .nav-hamburger-animation {
-            opacity: 1;
-            transition: opacity 0.3s;
+            animation-name: nav-hamburger-fade-in;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;            
+        }
+
+        @keyframes nav-hamburger-fade-in {
+            0% {opacity: 0}
+            100% {opacity: 1}
         }
 
         li:not(:last-child) {
@@ -370,12 +399,13 @@ header {
 
 @keyframes left-move-text-wrapper {
     0% {right: -318px}
-    100% {right: -132px}
+    100% {right: -130px}
 }
 
 .down-move-text__wrapper {
     animation-name: down-move-text-wrapper;
-    animation-duration: 0.6s;        
+    animation-duration: 0.6s;      
+    animation-delay: 0.5s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;    
 }
@@ -436,13 +466,13 @@ header {
 
 .collapsed-border {
     animation-name: collapsed-border;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-timing-function: ease-in;
     animation-fill-mode: forwards; 
 }
 
 @keyframes collapsed-border {
-    0% {transform: rotate(-20deg); left: 326px}
+    0% {left: 329px}
     100% {transform: rotate(90deg); left: 348px; top: 34px}
 }
 
@@ -470,7 +500,7 @@ header {
 
 .fade-out-box {
     left: -373px;
-    top: 245px;
+    // top: 245px;
 }
 
 .fade-out-right-border {
@@ -484,3 +514,43 @@ header {
     100% {opacity: 0}
 }
 // end of Logo
+
+// Bouncing arrow
+.arrow-bouncing {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 40px;
+    animation-name: bouncing-arrow;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+    display: none;
+
+    @keyframes bouncing-arrow {
+        0% {transform: translateY(0)}
+        100% {transform: translateY(-10px)}
+    }
+
+    .arrow-bouncing-link {
+        opacity: 0;
+    }
+
+    .arrow-bouncing-link-animation {
+        animation-name: arrow-bouncing-fade-in;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;     
+    }
+
+    @keyframes arrow-bouncing-fade-in {
+        0% {opacity: 0}
+        100% {opacity: 1}
+    }
+    
+    a {
+        padding: 15px 15px 0 15px;
+    }
+}
