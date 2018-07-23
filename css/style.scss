@@ -60,10 +60,37 @@ header {
 
     ul {
 
+        li {
+            opacity: 0;
+            animation-duration: 0.3s;
+            animation-fill-mode: forwards;                
+            animation-timing-function: ease-out;
+        }
+
         a {
             display: block;
             text-transform: capitalize;
         }
+    }
+
+    button {
+        outline: none;
+    }
+
+    .nav-hamburger-desktop, .nav-hamburger-mobile {
+        margin-left: 30px;
+        opacity: 0;
+    }
+
+    .nav-hamburger-animation {
+        animation-name: nav-hamburger-fade-in;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;            
+    }
+
+    @keyframes nav-hamburger-fade-in {
+        0% {opacity: 0}
+        100% {opacity: 1}
     }
 
     .small-logo {       
@@ -90,36 +117,27 @@ header {
     }
     
     .navigation-major {
-        display: none;
         justify-content: flex-end;
-        align-items: center;
-        
-        .nav-hamburger {
-            margin-left: 30px;
-            opacity: 0;
-        }
-
-        .nav-hamburger-animation {
-            animation-name: nav-hamburger-fade-in;
-            animation-duration: 1s;
-            animation-fill-mode: forwards;            
-        }
-
-        @keyframes nav-hamburger-fade-in {
-            0% {opacity: 0}
-            100% {opacity: 1}
-        }
-
-        li:not(:last-child) {
-            opacity: 0;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;                
-            animation-timing-function: ease-out;
-        }
+        align-items: center;     
 
         a {
             padding: 8px 15px;
         }
+    }
+
+    .navigation-layout {
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 20px;   
+        
+        a {
+            padding: 8px 15px;                        
+        }
+    }
+
+    // Desktop Version
+    .navigation-major-desktop {
+        display: none;
 
         .nav-home-animation {
             animation-name: nav-home-fade-in; 
@@ -127,7 +145,6 @@ header {
         }
         
         @keyframes nav-home-fade-in {
-            // 0% {opacity: 0; transform: translateX(80px); transform: scale(0.5, 0.5)}
             0% {opacity: 0; transform: matrix(0.95, 0, 0, 0.95, 80, 0)}            
             33% {opacity: 0.1}
             66% {opacity: 0.2}
@@ -140,7 +157,6 @@ header {
         }
         
         @keyframes nav-about-us-fade-in {
-            // 0% {opacity: 0; transform: translateX(80px)}
             0% {opacity: 0; transform: matrix(0.9, 0, 0, 0.9, 80, 0)}                        
             33% {opacity: 0.2}
             66% {opacity: 0.3}
@@ -153,7 +169,6 @@ header {
         }
         
         @keyframes nav-services-fade-in {
-            // 0% {opacity: 0; transform: translateX(80px)}
             0% {opacity: 0; transform: matrix(0.85, 0, 0, 0.85, 80, 0)}                        
             33% {opacity: 0.4}
             66% {opacity: 0.5}
@@ -166,7 +181,6 @@ header {
         }
         
         @keyframes nav-testimonials-fade-in {
-            // 0% {opacity: 0; transform: translateX(80px)}\
             0% {opacity: 0; transform: matrix(0.8, 0, 0, 0.8, 80, 0)}            
             33% {opacity: 0.6}
             66% {opacity: 0.7}
@@ -178,7 +192,6 @@ header {
         }
         
         @keyframes nav-contacts-fade-in {
-            // 0% {opacity: 0; transform: translateX(80px)}
             0% {opacity: 0; transform: matrix(0.75, 0, 0, 0.75, 80, 0)}                        
             33% {opacity: 0.8}
             66% {opacity: 0.9}
@@ -188,28 +201,13 @@ header {
 
     .navigation-minor {
         display: none;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-top: 20px;
-        
-        li {
-            opacity: 0;
-            animation-duration: 0.3s;
-            animation-fill-mode: forwards;                
-            animation-timing-function: ease-out;
-        }
-
-        a {
-            padding: 8px 15px;            
-        }
 
         .nav-web-fade-in {
             animation-name: nav-web-fade-in;  
         }
 
         .nav-web-fade-out {
-            animation-name: nav-web-fade-out;           
-            // animation-delay: 0.2s;            
+            animation-name: nav-web-fade-out;                      
         }
         
         @keyframes nav-web-fade-in {
@@ -228,12 +226,10 @@ header {
 
         .nav-app-fade-in {
             animation-name: nav-app-fade-in;  
-            // animation-delay: 0.2s;
         }
 
         .nav-app-fade-out {
             animation-name: nav-app-fade-out;  
-            // animation-delay: 0.1s;
         }
         
         @keyframes nav-app-fade-in {
@@ -252,7 +248,6 @@ header {
 
         .nav-business-fade-in {
             animation-name: nav-business-fade-in;  
-            // animation-delay: 0.3s;
         }
 
         .nav-business-fade-out {
@@ -273,15 +268,203 @@ header {
             66% {opacity: 0.8}
             100% {opacity: 0; transform: matrix(0.95, 0, 0, 0.85, 0, -40)}                        
         }
-    
-    }
-    
-    .show-minor-navigation {
-        display: flex;
     }
 
-    button {
-        outline: none;
+    // Mobile Version
+    .mobile-version {
+        display: none;
+    }
+
+    .navigation-major-mobile {
+        display: none;
+    }
+
+    .navigation-mobile {
+        display: none;
+
+        li {
+            opacity: 0;
+            animation-duration: 0.3s;
+            animation-fill-mode: forwards;                
+            animation-timing-function: ease-out;
+        }
+
+        .nav-home-mobile-fade-in {
+            animation-name: nav-home-mobile-fade-in;  
+        }
+        
+        .nav-home-mobile-fade-out {
+            animation-name: nav-home-mobile-fade-out;  
+        }
+        
+        @keyframes nav-home-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.60, 0, 0, 0.50, 0, -40)}                        
+            33% {opacity: 0.9}
+            66% {opacity: 0.95}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-home-mobile-fade-out {
+            0% {opacity: 1} 
+            33% {opacity: 0.6}
+            66% {opacity: 0.55}
+            100% {opacity: 0; transform: matrix(0.60, 0, 0, 0.50, 0, -40)}     
+        }
+
+        .nav-about-us-mobile-fade-in {
+            animation-name: nav-about-us-mobile-fade-in;                
+        }
+
+        .nav-about-us-mobile-fade-out {
+            animation-name: nav-about-us-mobile-fade-out;                
+        }
+        
+        @keyframes nav-about-us-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.65, 0, 0, 0.55, 0, -40)}                        
+            33% {opacity: 0.85}
+            66% {opacity: 0.9}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-about-us-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.65}
+            66% {opacity: 0.6}
+            100% {opacity: 0; transform: matrix(0.65, 0, 0, 0.55, 0, -40)}                        
+        }
+
+        .nav-services-mobile-fade-in {
+            animation-name: nav-services-mobile-fade-in;             
+        }
+
+        .nav-services-mobile-fade-out {
+            animation-name: nav-services-mobile-fade-out;             
+        }
+        
+        @keyframes nav-services-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.70, 0, 0, 0.60, 0, -40)}                        
+            33% {opacity: 0.8}
+            66% {opacity: 0.85}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-services-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.7}
+            66% {opacity: 0.65}
+            100% {opacity: 0; transform: matrix(0.70, 0, 0, 0.60, 0, -40)}                        
+        }
+
+        .nav-testimonials-mobile-fade-in {
+            animation-name: nav-testimonials-mobile-fade-in;              
+        }
+
+        .nav-testimonials-mobile-fade-out {
+            animation-name: nav-testimonials-mobile-fade-out;              
+        }
+        
+        @keyframes nav-testimonials-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.75, 0, 0, 0.65, 0, -40)}                        
+            33% {opacity: 0.75}
+            66% {opacity: 0.8}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-testimonials-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.75}
+            66% {opacity: 0.7}
+            100% {opacity: 0; transform: matrix(0.75, 0, 0, 0.65, 0, -40)}                        
+        }
+
+        .nav-contacts-mobile-fade-in {
+            animation-name: nav-contacts-mobile-fade-in;  
+        }
+
+        .nav-contacts-mobile-fade-out {
+            animation-name: nav-contacts-mobile-fade-out;  
+        }
+        
+        @keyframes nav-contacts-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.80, 0, 0, 0.70, 0, -40)}                        
+            33% {opacity: 0.7}
+            66% {opacity: 0.75}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-contacts-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.8}
+            66% {opacity: 0.75}
+            100% {opacity: 0; transform: matrix(0.80, 0, 0, 0.70, 0, -40)}                        
+        }
+
+
+        .nav-web-mobile-fade-in {
+            animation-name: nav-web-mobile-fade-in;  
+        }
+
+        .nav-web-mobile-fade-out {
+            animation-name: nav-web-mobile-fade-out;  
+        }
+        
+        @keyframes nav-web-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.85, 0, 0, 0.75, 0, -40)}                        
+            33% {opacity: 0.65}
+            66% {opacity: 0.7}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-web-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.85}
+            66% {opacity: 0.8}
+            100% {opacity: 0; transform: matrix(0.85, 0, 0, 0.75, 0, -40)}                        
+        }
+
+        .nav-app-mobile-fade-in {
+            animation-name: nav-app-mobile-fade-in;  
+        }
+
+        .nav-app-mobile-fade-out {
+            animation-name: nav-app-mobile-fade-out;  
+        }
+        
+        @keyframes nav-app-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.90, 0, 0, 0.80, 0, -40)}                        
+            33% {opacity: 0.6}
+            66% {opacity: 0.65}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-app-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.9}
+            66% {opacity: 0.85}
+            100% {opacity: 0; transform: matrix(0.90, 0, 0, 0.80, 0, -40)}                        
+        }
+
+        .nav-business-mobile-fade-in {
+            animation-name: nav-business-mobile-fade-in;  
+        }
+
+        .nav-business-mobile-fade-out {
+            animation-name: nav-business-mobile-fade-out;  
+        }
+        
+        @keyframes nav-business-mobile-fade-in {
+            0% {opacity: 0; transform: matrix(0.95, 0, 0, 0.85, 0, -40)}                        
+            33% {opacity: 0.55}
+            66% {opacity: 0.6}
+            100% {opacity: 1}
+        }
+
+        @keyframes nav-business-mobile-fade-out {
+            0% {opacity: 1}
+            33% {opacity: 0.95}
+            66% {opacity: 0.9}
+            100% {opacity: 0; transform: matrix(0.95, 0, 0, 0.85, 0, -40)}                        
+        }
     }
 }
 // end of Header
@@ -552,5 +735,42 @@ header {
     
     a {
         padding: 15px 15px 0 15px;
+    }
+}
+
+// Media Queries
+// @media only screen and (max-width : 375px) {
+//     .logo-square-text {
+//         height: 280px;
+//         width: 280px;
+//     }
+
+//     .logo {
+//         width: 280px;
+//         height: 140px;
+//         left: 0;
+//         font-size: 66px;
+//     }
+    
+//     .text__wrapper {
+//         width: 280px;
+//         right: 0;
+//     }
+
+//     .text {
+//         right: 0;
+//         font-size: 29px;
+//     }
+// }    
+
+@media only screen and (max-width : 768px) {
+    header {
+        .desktop-version {
+            display: none;
+        }
+        
+        .mobile-version {
+            display: block;
+        }
     }
 }

@@ -1,5 +1,6 @@
 "use strict";
 
+// Main logo and background
 let square = document.querySelector(".square");
 let textWrapper = document.querySelector(".text__wrapper");
 let text = document.querySelector(".text");
@@ -16,28 +17,47 @@ let executedBigLogo = false;
 let smallLogo = document.querySelector(".small-logo"); 
 let smallLogoImg = document.querySelector(".small-logo-img");
 
-// Major navigation
+// Major navigation desktop
+// let navMajorWrapper = document.querySelector(".navigation-major__wrapper");
 let navMajor = document.querySelector(".navigation-major");
+let navMajorDesktop = document.querySelector(".navigation-major-desktop");
 let navHome = document.querySelector(".nav-home");
 let navAboutUs = document.querySelector(".nav-about-us");
 let navServices = document.querySelector(".nav-services");
 let navTestimonials = document.querySelector(".nav-testimonials");
 let navContacts = document.querySelector(".nav-contacts");
-let navHamburger = document.querySelector(".nav-hamburger");
-let hamburger = document.querySelector(".hamburger");
+let navHamburgerDesktop = document.querySelector(".nav-hamburger-desktop");
+let hamburgerDesktop = document.querySelector(".hamburger-desktop");
 
-// Minor navigation
+// Major navigation mobile
+let navMajorMobile = document.querySelector(".navigation-major-mobile");
+let navHomeMobile = document.querySelector(".nav-home-mobile");
+let navAboutUsMobile = document.querySelector(".nav-about-us-mobile");
+let navServicesMobile = document.querySelector(".nav-services-mobile");
+let navTestimonialsMobile = document.querySelector(".nav-testimonials-mobile");
+let navContactsMobile = document.querySelector(".nav-contacts-mobile");
+let navHamburgerMobile = document.querySelector(".nav-hamburger-mobile");
+let hamburgerMobile = document.querySelector(".hamburger-mobile");
+
+// Minor navigation desktop
 let navMinor = document.querySelector(".navigation-minor");
 let navWeb = document.querySelector(".nav-web");
 let navApp = document.querySelector(".nav-app");
 let navBusiness = document.querySelector(".nav-business");
+
+// Minor navigation mobile
+let navMobile = document.querySelector(".navigation-mobile");
+let navWebMobile = document.querySelector(".nav-web-mobile");
+let navAppMobile = document.querySelector(".nav-app-mobile");
+let navBusinessMobile = document.querySelector(".nav-business-mobile");
 
 // Bouncing arrow
 let bouncingArrow = document.querySelector(".arrow-bouncing"); 
 let bouncingArrowLink = document.querySelector(".arrow-bouncing-link");
 
 square.addEventListener("animationend", squareRotationEnd);
-hamburger.addEventListener("click", addActiveClass); 
+hamburgerDesktop.addEventListener("click", addDesktopActiveClass); 
+hamburgerMobile.addEventListener("click", addMobileActiveClass); 
 
 function squareRotationEnd() {
     if (!executedSquareRotation) { 
@@ -69,9 +89,7 @@ function littleBoxFadeOut() {
 }
 
 function textMovingDown() {
-    if (!executedTextMoving) {         
-        // square.classList.remove("left-move-square");
-        // square.className += " down-move-square";        
+    if (!executedTextMoving) {               
         textWrapper.className += " down-move-text__wrapper";
         textWrapper.addEventListener("animationend", bigLogoFadeIn);  
     }
@@ -89,22 +107,38 @@ function bigLogoFadeIn() {
 
 function addNavigation() {
     smallLogo.style.display = "block";
-    smallLogoImg.className += " small-logo-animation"; 
-    navMajor.style.display = "flex";
+    smallLogoImg.className += " small-logo-animation";    
+    navMajorDesktop.style.display = "flex";
     navMinor.style.display = "flex";
+    navMajorMobile.style.display = "flex";    
+    navMobile.style.display = "flex";    
     navHome.className += " nav-home-animation";
     navAboutUs.className += " nav-about-us-animation";
     navServices.className += " nav-services-animation";
     navTestimonials.className += " nav-testimonials-animation";
     navContacts.className += " nav-contacts-animation";
-    navHamburger.className += " nav-hamburger-animation";
+    navHamburgerDesktop.className += " nav-hamburger-animation";
+    navHamburgerMobile.className += " nav-hamburger-animation";    
     bouncingArrow.style.display = "inline-block";
     bouncingArrowLink.className += " arrow-bouncing-link-animation";
 }
 
-function addActiveClass() {
-    hamburger.classList.toggle("is-active");
+function addDesktopActiveClass() {
+    hamburgerDesktop.classList.toggle("is-active");
     navWeb.className = navWeb.className !== "nav-web-fade-in" ? "nav-web-fade-in" : "nav-web-fade-out";
     navApp.className = navApp.className !== "nav-app-fade-in" ? "nav-app-fade-in" : "nav-app-fade-out" 
     navBusiness.className = navBusiness.className !== "nav-business-fade-in" ? "nav-business-fade-in" : "nav-business-fade-out";
+}
+
+function addMobileActiveClass() {
+    hamburgerMobile.classList.toggle("is-active");
+    navHomeMobile.className = navHomeMobile.className !== "nav-home-mobile-fade-in" ? "nav-home-mobile-fade-in" : "nav-home-mobile-fade-out";
+    navAboutUsMobile.className = navAboutUsMobile.className !== "nav-about-us-mobile-fade-in" ? "nav-about-us-mobile-fade-in" : "nav-about-us-mobile-fade-out";
+    navServicesMobile.className = navServicesMobile.className !== "nav-services-mobile-fade-in" ? "nav-services-mobile-fade-in" : "nav-services-mobile-fade-out";
+    navTestimonialsMobile.className = navTestimonialsMobile.className !== "nav-testimonials-mobile-fade-in" ? "nav-testimonials-mobile-fade-in" : "nav-testimonials-mobile-fade-out";
+    navContactsMobile.className = navContactsMobile.className !== "nav-contacts-mobile-fade-in" ? "nav-contacts-mobile-fade-in" : "nav-contacts-mobile-fade-out";
+    
+    navWebMobile.className = navWebMobile.className !== "nav-web-mobile-fade-in" ? "nav-web-mobile-fade-in" : "nav-web-mobile-fade-out";
+    navAppMobile.className = navAppMobile.className !== "nav-app-mobile-fade-in" ? "nav-app-mobile-fade-in" : "nav-app-mobile-fade-out" 
+    navBusinessMobile.className = navBusinessMobile.className !== "nav-business-mobile-fade-in" ? "nav-business-mobile-fade-in" : "nav-business-mobile-fade-out";
 }
