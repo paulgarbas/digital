@@ -1,5 +1,5 @@
 "use strict";
-
+let rightMove = document.querySelector(".right-move");
 // Main logo and background
 let square = document.querySelector(".square");
 let textWrapper = document.querySelector(".text__wrapper");
@@ -12,6 +12,7 @@ let executedCollapsingBorder = false;
 let executedLittleBox = false;
 let executedTextMoving = false;
 let executedBigLogo = false;
+let isClicked = false;
 
 // Small logo
 let smallLogo = document.querySelector(".small-logo"); 
@@ -64,7 +65,7 @@ function squareRotationEnd() {
         squareRightBorder.className += " pushed-border";
         text.className += " right-move";
         textWrapper.className += " left-move-text__wrapper";  
-        textWrapper.style.right = "-130px";
+        textWrapper.style.right = "0";      
         square.className += " left-move-square";      
         square.addEventListener("animationend", collapsingBorder);
     }
@@ -82,7 +83,8 @@ function collapsingBorder() {
 function littleBoxFadeOut() {
     if (!executedLittleBox) {         
         square.className += " fade-out fade-out-box";
-        squareRightBorder.className += " fade-out fade-out-right-border";   
+        squareRightBorder.className += " fade-out fade-out-right-border";  
+        addNavigation(); 
         square.addEventListener("animationend", textMovingDown);
     }
     executedLittleBox = true;    
@@ -90,6 +92,10 @@ function littleBoxFadeOut() {
 
 function textMovingDown() {
     if (!executedTextMoving) {               
+        // squareRightBorder.style.display = "none";  
+        // square.style.display = "none";
+        text.classList.remove("right-move");
+        text.className += " right-move-second-time";
         textWrapper.className += " down-move-text__wrapper";
         textWrapper.addEventListener("animationend", bigLogoFadeIn);  
     }
@@ -112,19 +118,44 @@ function addNavigation() {
     navMinor.style.display = "flex";
     navMajorMobile.style.display = "flex";    
     navMobile.style.display = "flex";    
+    // navHome.className += " nav-home-animation";
+    // navAboutUs.className += " nav-about-us-animation";
+    // navServices.className += " nav-services-animation";
+    // navTestimonials.className += " nav-testimonials-animation";
+    // navContacts.className += " nav-contacts-animation";
+    navHamburgerDesktop.className += " nav-hamburger-animation";
+    navHamburgerMobile.className += " nav-hamburger-animation";    
+    // bouncingArrow.style.display = "inline-block";
+    // bouncingArrowLink.className += " arrow-bouncing-link-animation";
+    smallLogoImg.addEventListener("animationend", addNavigationSections);      
+}
+
+function addNavigationSections() {
     navHome.className += " nav-home-animation";
     navAboutUs.className += " nav-about-us-animation";
     navServices.className += " nav-services-animation";
     navTestimonials.className += " nav-testimonials-animation";
     navContacts.className += " nav-contacts-animation";
-    navHamburgerDesktop.className += " nav-hamburger-animation";
-    navHamburgerMobile.className += " nav-hamburger-animation";    
-    bouncingArrow.style.display = "inline-block";
-    bouncingArrowLink.className += " arrow-bouncing-link-animation";
 }
 
-function addDesktopActiveClass() {
+
+function addDesktopActiveClass(event) {
     hamburgerDesktop.classList.toggle("is-active");
+    navMinor.classList.toggle("is-visible");  
+    // if (!isClicked) {
+    //     navMinor.classList += " is-visible";    
+    //     navWeb.classList = "nav-web-fade-in";        
+    //     isClicked = true;
+        
+    // } else {
+    //     navWeb.classList = "nav-web-fade-out";
+    //     navWeb.addEventListener("animationend", function() {
+    //         navMinor.classList.remove("is-visible");
+    //         navWeb.classList = "nav-web";                   
+    //         isClicked = false;
+               
+    //     });
+    // }
     navWeb.className = navWeb.className !== "nav-web-fade-in" ? "nav-web-fade-in" : "nav-web-fade-out";
     navApp.className = navApp.className !== "nav-app-fade-in" ? "nav-app-fade-in" : "nav-app-fade-out" 
     navBusiness.className = navBusiness.className !== "nav-business-fade-in" ? "nav-business-fade-in" : "nav-business-fade-out";
@@ -132,6 +163,7 @@ function addDesktopActiveClass() {
 
 function addMobileActiveClass() {
     hamburgerMobile.classList.toggle("is-active");
+    navMobile.classList.toggle("is-visible");        
     navHomeMobile.className = navHomeMobile.className !== "nav-home-mobile-fade-in" ? "nav-home-mobile-fade-in" : "nav-home-mobile-fade-out";
     navAboutUsMobile.className = navAboutUsMobile.className !== "nav-about-us-mobile-fade-in" ? "nav-about-us-mobile-fade-in" : "nav-about-us-mobile-fade-out";
     navServicesMobile.className = navServicesMobile.className !== "nav-services-mobile-fade-in" ? "nav-services-mobile-fade-in" : "nav-services-mobile-fade-out";
