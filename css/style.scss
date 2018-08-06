@@ -495,9 +495,10 @@ header {
     position: absolute;
     height: 335px;
     // width: 335px;    
-    width: 450px;  
+    // width: 450px;  
+    width: 420px;
     max-width: 100%;
-    border: 1px solid #fff;
+    // border: 1px solid #fff;
 }
 
 .logo {
@@ -528,13 +529,22 @@ header {
     }
 }
 
+.square-text__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .square {
     position: absolute;
     // top: 245px;
     // top: 44%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    // left: 0;
+    // right: 0;
+    // margin: 0 auto;
+    left: 45%;
     border: 2px solid #fff;
     // border-right: none;
     width: 40px;
@@ -551,6 +561,7 @@ header {
 }
 
 .left-move-square {
+    // right: unset;
     animation-name: left-move-square;
     animation-duration: 0.6s;                      
     animation-timing-function: ease-in;
@@ -559,8 +570,8 @@ header {
 }
 
 @keyframes left-move-square {
-    0% {left: 0}
-    100% {left: -83%}
+    0% {left: 45%}
+    100% {left: 0}
 }
 
 .text__wrapper {
@@ -569,27 +580,25 @@ header {
     align-items: center;
     justify-content: center;
     // top: 231px;
-    top: 39.5%;
+    // top: 39.5%;
     // right: -130px;
-    right: -54.5%;
+    right: -44.5%;
     max-width: 100%;
-    width: 100%;
+    width: 90%;
     min-height: 70px;
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 .left-move-text__wrapper {
     animation-name: left-move-text-wrapper;
-    animation-duration: 0.6s;      
-                    
-    
+    animation-duration: 0.6s;                
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;    
 }
 
 @keyframes left-move-text-wrapper {
-    0% {right: 54.5%}
-    100% {right: -13.4%}
+    0% {right: -44.5%}
+    100% {right: 0}
 }
 
 .down-move-text__wrapper {
@@ -608,24 +617,29 @@ header {
 .text {
     position: absolute; 
     // display: none;
-    right: 99.1%;
-    padding: 11px 4px 11px 0;
+    // right: 99.1%;
+    left: -87.5%;
+    padding: 11px 0;
     width: max-content;
-    font-size: 32px;
+    font-size: 2em;
 }
 
 .right-move {
     display: block;
     animation-name: right-move; 
-    animation-duration: 0.6s;                          
+    animation-duration: 0.6s;       
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;
 }
 
 @keyframes right-move {
-    0% {right: -10%}
+    // 0% {right: 99.1%}
+    0% {left: -87.5%}
+    
     // 5% {right: 448px}
-    100% {right: 25.7%}
+    // 100% {right: 25.7%}
+    100% {left: 0}
+    
 }
 
 .right-move-second-time {
@@ -643,8 +657,8 @@ header {
     height: 40px;
     background-color: #fff;
     width: 2px;
-    left: 0%;
-    top: 22%;
+    left: 0;
+    // top: 22%;
     transition: all .1s;
     -webkit-transition: all .1s;
     display: none;
@@ -653,15 +667,15 @@ header {
 .pushed-border {
     display: block;
     animation-name: pushed-border;
-    animation-duration: 0.6s;                             
+    animation-duration: 0.6s;     
     animation-timing-function: ease-in;
     animation-fill-mode: forwards;   
 }
 
 @keyframes pushed-border {
-    0% {left: 108.8%}
+    0% {left: 0}
     // 5% {left: 11px}
-    100% {left: 73%}
+    100% {left: 87%}
 }
 
 .collapsed-border {
@@ -672,8 +686,8 @@ header {
 }
 
 @keyframes collapsed-border {
-    0% {left: 73%}
-    100% {transform: rotate(90deg); left: 78%; top: 48%}
+    0% {left: 87%}
+    100% {transform: rotate(90deg); left: 92%; top: 48%}
 }
 
 .fade-in-logo {
@@ -699,12 +713,12 @@ header {
 }
 
 .fade-out-box {
-    left: -83%;
+    left: 0;
 }
 
 .fade-out-right-border {
     transform: rotate(90deg);
-    left: 78%;
+    left: 94%;
     top: 48%;
 }
 
@@ -791,13 +805,43 @@ header {
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 430px) {
     .logo-square-text {
-        transform: scale(0.7, 0.7);
+        transform: scale(0.85, 0.85);
     }
 
-    // .text {
-    //     position: static;
+    .logo-square-text {
+        width: 90%;
+        height: 33.49%;
+    }
+
+    .text {
+        font-size: 6.9vw;
+    }
+
+    .square {
+        width: 10.55%;
+        height: 10.55%;
+    }
+
+    // text {
+    //     margin: 0 auto;
+    // }
+
+    // @keyframes left-move-text-wrapper {
+    //     0% {right: 54.5%}
+    //     100% {right: 0}
+    // }
+    
+    // @keyframes right-move {
+    //     0% {right: 99.1%}
+    //     // 5% {right: 448px}
+    //     100% {right: 0; left: 0; margin: 0 auto}
+    // }
+
+    // .fade-out-box {
+    //     left: -105%;
     // }
 }
+
 
