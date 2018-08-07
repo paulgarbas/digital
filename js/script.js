@@ -95,7 +95,7 @@ function textMovingDown() {
         // squareRightBorder.style.display = "none";  
         // square.style.display = "none";
         // text.classList.remove("right-move");
-        text.className += " right-move-second-time";
+        // text.className += " right-move-second-time";
         textWrapper.className += " down-move-text__wrapper";
         textWrapper.addEventListener("animationend", bigLogoFadeIn);  
     }

@@ -493,11 +493,11 @@ header {
     align-items: center;
     justify-content: center;
     position: absolute;
-    height: 335px;
+    height: 420px;
     // width: 335px;    
     // width: 450px;  
     width: 420px;
-    max-width: 100%;
+    // max-width: 100%;
     // border: 1px solid #fff;
 }
 
@@ -579,14 +579,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    // top: 231px;
-    // top: 39.5%;
-    // right: -130px;
     right: -44.5%;
     max-width: 100%;
     width: 90%;
     min-height: 70px;
     overflow: hidden;
+    // background-color: blue;
 }
 
 .left-move-text__wrapper {
@@ -617,11 +615,11 @@ header {
 .text {
     position: absolute; 
     // display: none;
-    // right: 99.1%;
-    left: -87.5%;
+    left: -94%;
     padding: 11px 0;
     width: max-content;
     font-size: 2em;
+    // background-color: blue;
 }
 
 .right-move {
@@ -657,8 +655,8 @@ header {
     height: 40px;
     background-color: #fff;
     width: 2px;
-    left: 0;
-    // top: 22%;
+    left: -0.5%;
+    top: 22%;
     transition: all .1s;
     -webkit-transition: all .1s;
     display: none;
@@ -673,7 +671,7 @@ header {
 }
 
 @keyframes pushed-border {
-    0% {left: 0}
+    0% {left: -0.5%}
     // 5% {left: 11px}
     100% {left: 87%}
 }
@@ -686,8 +684,9 @@ header {
 }
 
 @keyframes collapsed-border {
-    0% {left: 87%}
-    100% {transform: rotate(90deg); left: 92%; top: 48%}
+    0% {left: 87%; top: 22%}
+    50% {left: 90%}
+    100% {transform: rotate(90deg); left: 93%; top: 49%}
 }
 
 .fade-in-logo {
@@ -718,8 +717,8 @@ header {
 
 .fade-out-right-border {
     transform: rotate(90deg);
-    left: 94%;
-    top: 48%;
+    left: 93%;
+    top: 49%;
 }
 
 @keyframes fade-out {
@@ -769,30 +768,6 @@ header {
 }
 
 // Media Queries
-// @media only screen and (max-width : 375px) {
-//     .logo-square-text {
-//         height: 280px;
-//         width: 280px;
-//     }
-
-//     .logo {
-//         width: 280px;
-//         height: 140px;
-//         left: 0;
-//         font-size: 66px;
-//     }
-    
-//     .text__wrapper {
-//         width: 280px;
-//         right: 0;
-//     }
-
-//     .text {
-//         right: 0;
-//         font-size: 29px;
-//     }
-// }    
-
 @media only screen and (max-width : 768px) {
     header {
         .desktop-version {
@@ -807,41 +782,46 @@ header {
 
 @media only screen and (max-width: 430px) {
     .logo-square-text {
-        transform: scale(0.85, 0.85);
+        transform: scale(0.6, 0.6);
     }
-
-    .logo-square-text {
-        width: 90%;
-        height: 33.49%;
-    }
-
-    .text {
-        font-size: 6.9vw;
-    }
-
+    
     .square {
         width: 10.55%;
         height: 10.55%;
     }
-
-    // text {
-    //     margin: 0 auto;
-    // }
-
-    // @keyframes left-move-text-wrapper {
-    //     0% {right: 54.5%}
-    //     100% {right: 0}
-    // }
     
-    // @keyframes right-move {
-    //     0% {right: 99.1%}
-    //     // 5% {right: 448px}
-    //     100% {right: 0; left: 0; margin: 0 auto}
-    // }
+    .text__wrapper {
+        right: -45.5%;
+    }
 
-    // .fade-out-box {
-    //     left: -105%;
-    // }
+    @keyframes down-move-text-wrapper {
+        0% {top: 39.5%; right: 0}
+        100% {top: 60.5%; right: 0}
+    }
+
+    @keyframes right-move {
+        0% {left: -87.5%}
+        100% {left: 1%}    
+    }
+
+    .square-border-right {
+        left: -0.5%;
+    }
+
+    @keyframes pushed-border {
+        0% {left: -0.5%}
+        100% {left: 87.5%}
+    }
+
+    @keyframes collapsed-border {
+        0% {left: 87.5%}
+        50% {left: 90.5%}
+        100% {transform: rotate(90deg); left: 93.5%; top: 49%}
+    }
+
+    .fade-out-right-border {
+        transform: rotate(90deg);
+        left: 94%;
+        top: 49%;
+    }
 }
-
-
