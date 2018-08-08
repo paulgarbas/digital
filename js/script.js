@@ -20,6 +20,7 @@ let smallLogoImg = document.querySelector(".small-logo-img");
 
 // Major navigation desktop
 // let navMajorWrapper = document.querySelector(".navigation-major__wrapper");
+let desktopVersion = document.querySelector(".desktop-version");
 let navMajor = document.querySelector(".navigation-major");
 let navMajorDesktop = document.querySelector(".navigation-major-desktop");
 let navHome = document.querySelector(".nav-home");
@@ -64,8 +65,7 @@ function squareRotationEnd() {
     if (!executedSquareRotation) { 
         squareRightBorder.className += " pushed-border";
         text.className += " right-move";
-        textWrapper.className += " left-move-text__wrapper";  
-        // textWrapper.style.right = "0";      
+        textWrapper.className += " left-move-text__wrapper";     
         square.className += " left-move-square";      
         square.addEventListener("animationend", collapsingBorder);
     }
@@ -92,10 +92,6 @@ function littleBoxFadeOut() {
 
 function textMovingDown() {
     if (!executedTextMoving) {               
-        // squareRightBorder.style.display = "none";  
-        // square.style.display = "none";
-        // text.classList.remove("right-move");
-        // text.className += " right-move-second-time";
         textWrapper.className += " down-move-text__wrapper";
         textWrapper.addEventListener("animationend", bigLogoFadeIn);  
     }
@@ -118,15 +114,10 @@ function addNavigation() {
     navMinor.style.display = "flex";
     navMajorMobile.style.display = "flex";    
     navMobile.style.display = "flex";    
-    // navHome.className += " nav-home-animation";
-    // navAboutUs.className += " nav-about-us-animation";
-    // navServices.className += " nav-services-animation";
-    // navTestimonials.className += " nav-testimonials-animation";
-    // navContacts.className += " nav-contacts-animation";
     navHamburgerDesktop.className += " nav-hamburger-animation";
+    navHamburgerDesktop.style.pointerEvents = "auto";
     navHamburgerMobile.className += " nav-hamburger-animation";    
-    // bouncingArrow.style.display = "inline-block";
-    // bouncingArrowLink.className += " arrow-bouncing-link-animation";
+    navHamburgerMobile.style.pointerEvents = "auto";
     smallLogoImg.addEventListener("animationend", addNavigationSections);      
 }
 
@@ -136,26 +127,23 @@ function addNavigationSections() {
     navServices.className += " nav-services-animation";
     navTestimonials.className += " nav-testimonials-animation";
     navContacts.className += " nav-contacts-animation";
+    navHome.addEventListener("animationend", activateSectionsPointer);      
 }
-
 
 function addDesktopActiveClass(event) {
     hamburgerDesktop.classList.toggle("is-active");
-    navMinor.classList.toggle("is-visible");  
-    // if (!isClicked) {
-    //     navMinor.classList += " is-visible";    
-    //     navWeb.classList = "nav-web-fade-in";        
-    //     isClicked = true;
-        
-    // } else {
-    //     navWeb.classList = "nav-web-fade-out";
-    //     navWeb.addEventListener("animationend", function() {
-    //         navMinor.classList.remove("is-visible");
-    //         navWeb.classList = "nav-web";                   
-    //         isClicked = false;
-               
-    //     });
-    // }
+    
+    // Activates cursor: pointer for Desktop minor navigation only after it appears
+    if (hamburgerDesktop.classList.contains("is-active")) {
+        navBusiness.addEventListener("animationend", activateMinorNavigationPointer);   
+    // Deactivates - after it disappears          
+    } else {
+        navBusiness.addEventListener("animationend", deactivateMinorNavigationPointer);      
+    }
+    
+    window.addEventListener("resize", resetNavigation);
+    
+    // Navigation appears/disappears
     navWeb.className = navWeb.className !== "nav-web-fade-in" ? "nav-web-fade-in" : "nav-web-fade-out";
     navApp.className = navApp.className !== "nav-app-fade-in" ? "nav-app-fade-in" : "nav-app-fade-out" 
     navBusiness.className = navBusiness.className !== "nav-business-fade-in" ? "nav-business-fade-in" : "nav-business-fade-out";
@@ -163,7 +151,18 @@ function addDesktopActiveClass(event) {
 
 function addMobileActiveClass() {
     hamburgerMobile.classList.toggle("is-active");
-    navMobile.classList.toggle("is-visible");        
+    
+    // Activates cursor: pointer for Mobile navigation only after it appears
+    if (hamburgerMobile.classList.contains("is-active")) {
+        navBusinessMobile.addEventListener("animationend", activateMinorNavigationPointer);    
+    // Deactivates - after it disappears  
+    } else {
+        navBusinessMobile.addEventListener("animationend", deactivateMinorNavigationPointer);      
+    }
+
+    window.addEventListener("resize", resetNavigation);
+
+    // Navigation appears/disappears
     navHomeMobile.className = navHomeMobile.className !== "nav-home-mobile-fade-in" ? "nav-home-mobile-fade-in" : "nav-home-mobile-fade-out";
     navAboutUsMobile.className = navAboutUsMobile.className !== "nav-about-us-mobile-fade-in" ? "nav-about-us-mobile-fade-in" : "nav-about-us-mobile-fade-out";
     navServicesMobile.className = navServicesMobile.className !== "nav-services-mobile-fade-in" ? "nav-services-mobile-fade-in" : "nav-services-mobile-fade-out";
@@ -173,4 +172,39 @@ function addMobileActiveClass() {
     navWebMobile.className = navWebMobile.className !== "nav-web-mobile-fade-in" ? "nav-web-mobile-fade-in" : "nav-web-mobile-fade-out";
     navAppMobile.className = navAppMobile.className !== "nav-app-mobile-fade-in" ? "nav-app-mobile-fade-in" : "nav-app-mobile-fade-out" 
     navBusinessMobile.className = navBusinessMobile.className !== "nav-business-mobile-fade-in" ? "nav-business-mobile-fade-in" : "nav-business-mobile-fade-out";
+}
+
+// Activates cursor: pointer for Desktop version's major navigation
+function activateSectionsPointer() {
+    navMajorDesktop.style.pointerEvents = "auto";
+}
+
+function activateMinorNavigationPointer() {
+    navMinor.style.pointerEvents = "auto";      // Activates cursor: pointer for Desktop minor navigation     
+    navMobile.style.pointerEvents = "auto";     // Activates cursor: pointer for Mobile navigation
+}
+
+function deactivateMinorNavigationPointer() {
+    navMinor.style.pointerEvents = "none";      // Deactivates cursor: pointer for Desktop minor navigation 
+    navMobile.style.pointerEvents = "none";     // Deactivates cursor: pointer for Mobile navigation
+}
+
+// Resets navigation when the browser window resizes
+function resetNavigation() {
+    navWeb.className = "navWeb";
+    navApp.className = "navWeb";
+    navBusiness.className = "navWeb";
+
+    navHomeMobile.className = "navHomeMobile";
+    navAboutUsMobile.className = "navAboutUsMobile";
+    navServicesMobile.className = "navServicesMobile";
+    navTestimonialsMobile.className = "navTestimonialsMobile";
+    navContactsMobile.className = "navContactsMobile";
+    navWebMobile.className = "navWebMobile";
+    navAppMobile.className = "navAppMobile";
+    navBusinessMobile.className = "navBusinessMobile";
+
+    // Resets hamburger
+    hamburgerDesktop.classList.remove("is-active");  
+    hamburgerMobile.classList.remove("is-active");
 }
