@@ -15,8 +15,8 @@ let executedBigLogo = false;
 let isClicked = false;
 
 // Small logo
-let smallLogo = document.querySelector(".small-logo"); 
-let smallLogoImg = document.querySelector(".small-logo-img");
+let smallLogo = document.querySelector(".index-small-logo"); 
+let smallLogoImg = document.querySelector(".index-small-logo-img");
 
 // Major navigation desktop
 // let navMajorWrapper = document.querySelector(".navigation-major__wrapper");
