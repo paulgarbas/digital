@@ -1,6 +1,17 @@
 @import "../hamburgers/hamburgers-settings";
 @import "../hamburgers/hamburgers";
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+
+@font-face {
+    font-family: 'ClearSans';
+    src: url('../fonts/clearsans-regular-webfont.woff2') format('woff2'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('../fonts/clearsans-regular-webfont.woff') format('woff'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
 // General
 * {
     box-sizing: border-box;
@@ -11,15 +22,15 @@ html {
 }
 
 body {
-    font-family: arial;
+    font-family: Arial, Helvetica, sans-serif;
     color: #fff;
     margin: 0;
     height: 100%;
     font-size: 16px;
 }
 
-#particles-js {
-    background-color: #2d7897;  
+main {
+    font-family: 'ClearSans', sans-serif;
 }
 
 canvas {
@@ -30,8 +41,18 @@ canvas {
     z-index: -1;
 }
 
+#particles-js {
+    background-color: #2d7897;  
+}
+
 h1 {
     font-size: 42px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 700;
 }
 
 h4 {
@@ -53,6 +74,10 @@ ul {
     }
 }
 
+.container-fluid {
+    padding: 0;
+}
+
 .body-bg {
     opacity: 1;
 }
@@ -66,7 +91,7 @@ ul {
 header {
 
     nav {
-        position: fixed;
+        position: absolute;
         left: 0;
         right: 0;
         z-index: 50;
@@ -114,7 +139,7 @@ header {
     }
 
     .small-logo {       
-        position: fixed;
+        position: absolute;
         height: 48px;
         padding: 8px 0 0 15px;
         display: none;
@@ -152,9 +177,9 @@ header {
         }
     }
 
-    .navigation-major {
-        margin-top: 15px;
-    }
+    // .navigation-major {
+    //     margin-top: 15px;
+    // }
 
     .navigation-layout {
         flex-direction: column;
@@ -762,11 +787,13 @@ header {
 }
 
 // Services
+
+// Make Website
 .make-website__wrapper {
-    position: relative;
-    height: 732px;
+    margin: 0;
+    padding-bottom: 85px;
     background-color: #2d7d9d;
-    background-image: linear-gradient(to right, #2d7d9d , #2e99c6);
+    background-image: linear-gradient(90deg, #2d7797 1%, #2d9dcd 100%);
 }
 
 .make-website__wrapper::after {
@@ -782,49 +809,157 @@ header {
     height: 732px;
 }
 
-.make-website {
-    min-height: 46.7%;
-    padding: 30px;
-    position: absolute;
-    top: 13.3%;
-    left: 0;
-    right: 0;
-    width: 80%;
-    background-color: rgba(40,120,153, 0.7);
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-.make-website-inner-left {
+.make-website-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-}
+    min-height: 46.7%;
+    padding: 30px;
+    width: 80%;
+    background-color: rgba(36,113,145,0.5019607843137255);    
+    margin: 114px auto 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 21px rgba(0,0,0,0.31);   
+    z-index: 1;
 
-.make-website-inner-left img {
-    height: 250px;
-    // padding: 30px;
-}
-
-.make-website-inner-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    h1 {
-        margin: 0;
+    .make-website-header-inner-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 250px;
+        padding: 0 15px 0 0;
+        
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
     }
-
-    h4 {
-        margin: 30px 0;
+      
+    .make-website-header-inner-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 100px 0 15px;
+    
+        h1 {
+            margin: 0;
+        }
+    
+        h4 {
+            margin: 30px 0;
+        }
     }
 }
+
+.make-website-about {
+    width: 85%;
+    margin: 50px auto 0 auto;
+
+    .make-website-about-inner {
+        padding: 0;
+
+        h4 {
+            margin-bottom: 0;
+        }
+    }
+}
+// end of Make Website
+
+// Technologies
+.technologies__wrapper {
+    // margin: 0 -20px;
+    
+    .technologies {
+        margin: -40px auto 0 auto;
+        width: 85%;
+        display: flex;
+        justify-content: space-between;      
+    }
+}
+
+.technologies-single {
+    border-radius: 11px 11px 0 0;        
+    min-width: 191px;
+    margin: 0 20px 20px 20px;
+    padding: 0;
+    background-color: #fff;
+    z-index: 1;          
+    
+    .technologies-logo {
+        border-radius: 11px;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+        min-height: 192px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        
+        .technologies-image {
+            width: 80px;
+        
+        }
+        
+        .technologies-image img {
+            width: 100%;
+        }
+        
+        .technologies-name {
+            font-weight: 700;
+            padding: 0 10px;
+            text-align: center;
+            color: rgb(45,120,151);
+        }
+    }  
+    
+    .technologies-list {
+        color: #7c7c7c;
+        text-align: center;
+        padding: 0 10px;
+    }
+}
+
+// .technologies-single:first-child {
+//     margin-left: 0;
+// }
+
+// .technologies-single:last-child {
+//     margin-right: 0;
+// }
+// end of Technologies
+
+// Our Works
+.our-works__wrapper {
+    margin: 90px 0 0 0;
+    // background-image: radial-gradient(circle at center, #fb9f3d 0%, #f16529 50%, #fb9f3d 100%);
+    height: 461px;
+    width: 100%;
+
+    img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
+
+// end of Our Works
 
 // Media Queries
-@media only screen and (max-width : 768px) {
+@media (max-width: 1024px) {
+    .make-website-header .make-website-header-inner-right {
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .make-website-header-inner-left {
+        padding-right: 20px;
+    }
+
+    .make-website-header-inner-right {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width : 768px) {
     header {
         .desktop-version {
             display: none;
@@ -842,9 +977,23 @@ header {
             display: block;
         }
     }
+
+    .make-website-header {
+        padding-bottom: 0;
+    }
+
+    .make-website-header .make-website-header-inner-left {
+            padding: 0 15px;
+    }
+    
+    .make-website-header .make-website-header-inner-right {
+        padding: 0 15px;
+        margin-top: 45px;
+        text-align: center;
+    }  
 }
 
-@media only screen and (max-width: 430px) {
+@media (max-width: 430px) {
     .logo-square-text {
         transform: scale(0.6, 0.6);
     }
