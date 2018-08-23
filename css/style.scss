@@ -74,16 +74,18 @@ ul {
     }
 }
 
-.container-fluid {
-    padding: 0;
-}
-
 .body-bg {
     opacity: 1;
 }
 
 .text-pacifico {
     font-family: 'Pacifico', cursive;
+}
+
+.container-width {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 // end of General
 
@@ -790,6 +792,7 @@ header {
 
 // Make Website
 .make-website__wrapper {
+    position: relative;
     margin: 0;
     padding-bottom: 85px;
     background-color: #2d7d9d;
@@ -800,13 +803,14 @@ header {
     content: "";
     background: url("../img/digitalidea-cover-graphic.png") no-repeat center right; 
     background-size: contain;
+    // background-attachment: fixed;
     opacity: 0.2;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 732px;
+    height: 100%;
 }
 
 .make-website-header {
@@ -814,9 +818,8 @@ header {
     align-items: center;
     min-height: 46.7%;
     padding: 30px;
-    width: 80%;
     background-color: rgba(36,113,145,0.5019607843137255);    
-    margin: 114px auto 0 auto;
+    margin: 114px 15px 0 15px;
     border-radius: 10px;
     box-shadow: 0 0 21px rgba(0,0,0,0.31);   
     z-index: 1;
@@ -851,12 +854,9 @@ header {
 }
 
 .make-website-about {
-    width: 85%;
     margin: 50px auto 0 auto;
 
     .make-website-about-inner {
-        padding: 0;
-
         h4 {
             margin-bottom: 0;
         }
@@ -870,7 +870,6 @@ header {
     
     .technologies {
         margin: -40px auto 0 auto;
-        width: 85%;
         display: flex;
         justify-content: space-between;      
     }
@@ -879,7 +878,7 @@ header {
 .technologies-single {
     border-radius: 11px 11px 0 0;        
     min-width: 191px;
-    margin: 0 20px 20px 20px;
+    margin: 0 15.5px 20px 15.5px;
     padding: 0;
     background-color: #fff;
     z-index: 1;          
@@ -917,18 +916,9 @@ header {
     }
 }
 
-// .technologies-single:first-child {
-//     margin-left: 0;
-// }
-
-// .technologies-single:last-child {
-//     margin-right: 0;
-// }
-// end of Technologies
-
 // Our Works
 .our-works__wrapper {
-    margin: 90px 0 0 0;
+    margin: 70px 0 0 0;
     // background-image: radial-gradient(circle at center, #fb9f3d 0%, #f16529 50%, #fb9f3d 100%);
     height: 461px;
     width: 100%;
@@ -939,8 +929,175 @@ header {
         max-height: 100%;
     }
 }
-
 // end of Our Works
+
+// Why Choose Us
+.why-choose-us__wrapper {  
+    position: relative;
+    margin-top: -70px;
+    padding: 75px 0 403px 0;
+    
+    .why-choose-us-header {    
+        margin: 0 0 60px 0;
+        
+        h2 {
+            color: rgb(46,158,205);
+        }
+
+        h4 {
+            color: rgb(97,97,97);
+            font-size: 18px;
+        }
+    }
+
+    .why-choose-us-body {
+        margin: 0 0 60px 0;
+        
+        .why-choose-us-body-logo {
+            max-width: 80px;
+            min-width: 80px;
+            max-height: 80px;
+            min-height: 80px;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #2d9dcd;
+        }
+
+        .why-choose-us-body-logo img {
+            width: 100%;
+        }
+
+        .why-choose-us-body-text {
+            margin-left: 15px;
+        }
+
+        h3 {
+            font-size: 26px;
+            color: rgb(45,120,151);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 7px 0;
+        }
+
+        p {
+            font-size: 18px;
+            color: rgb(97,97,97);
+            margin: 0;
+        }
+    }
+
+    .why-choose-us-body:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.why-choose-us__wrapper::after {
+    content: "";
+    background: url("../img/digitalidea-cover-graphic.png") no-repeat center right;
+    background-size: contain;
+    // background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0.2;
+    z-index: -1;
+}
+// end of Why Choose Us
+
+// Text Us
+.text-us__wrapper {
+    margin-top: -353px;
+}
+
+.text-us {
+    background-color: #f8f8f8;
+    // min-height: 283px;
+    margin: 15px;
+    
+    .text-us-inner {
+        border: 5px solid #f7f7f7;
+        border-radius: 10px;
+        box-shadow: 0 0 21px rgba(0,0,0,0.21);
+        background: url("../img/text-us-bg.png") no-repeat center center;
+        background-size: cover;
+        margin: 0;
+        padding: 10px;
+        // height: 100%;
+        display: flex;
+        align-items: center;
+
+        .text-us-logo {
+           text-align: center;
+        }
+
+        .text-us-logo img {
+            max-width: 100%;
+        }
+    }
+}
+
+.text-us-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        color: rgb(45,120,151);
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: rgb(97,97,97);
+        margin: 5px 0 20px 0;
+        font-size: 18px;
+    }
+
+    button {
+        width: 179px;
+        height: 35px;
+        border-radius: 7px;
+        color: #fff;
+        font-family: 'ClearSans', sans-serif;
+        // background-color: #2d7797;
+        // border: 2px solid #2d7797;
+        background-color: #2d9dcd;
+        border: 1px solid #2d7797;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+// end of TextUs
+
+// Footer
+.footer__wrapper {
+    padding: 0;
+    
+    .footer-main {
+        height: 261px;
+        margin-top: 87px;
+        background-image: linear-gradient(90deg, #2d7797 1%, #2d9dcd 100%);
+        // background-color: #2d9dcd;
+    
+        .footer-main-inner {
+            height: 100%;
+            margin: 0;
+            background: url("../img/digitalidea-logo-slogan.png") no-repeat center center;
+            background-size: 75%;
+        }
+    }
+
+    .footer-copyright {
+        height: 52px;
+        background-color: #1a4d63;
+        margin: 0;
+    }
+}
+// end of Footer
 
 // Media Queries
 @media (max-width: 1024px) {
@@ -977,20 +1134,74 @@ header {
             display: block;
         }
     }
+}
 
+@media (max-width : 767px) {
     .make-website-header {
         padding-bottom: 0;
     }
 
     .make-website-header .make-website-header-inner-left {
-            padding: 0 15px;
+            padding: 0;
     }
     
     .make-website-header .make-website-header-inner-right {
-        padding: 0 15px;
+        padding: 0;
         margin-top: 45px;
-        text-align: center;
+
+        h1 {
+            text-align: center;
+        }
     }  
+
+    .make-website-about-inner {
+        h2 {
+            text-align: center;
+        }
+    }
+
+    .why-choose-us-body-logo {
+        margin: 0 auto 20px auto;
+    }
+
+    .why-choose-us-header {
+        h2 {
+            text-align: center;
+        }
+    }
+
+    .why-choose-us__wrapper .why-choose-us-body {
+        padding: 0;
+        
+        .why-choose-us-body-logo {
+            margin: 0 auto 20px auto;
+        }
+
+        h3 {
+            text-align: center
+        }
+
+        .why-choose-us-body-text {
+            margin-left: 0;
+        }
+    }
+        
+    .text-us-text {
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 40px 0;
+        }
+
+        button {
+            margin: 0 auto;
+        }
+    }
+ 
+
 }
 
 @media (max-width: 430px) {
