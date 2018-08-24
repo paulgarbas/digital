@@ -7,6 +7,9 @@
         <title>Digital Idea - Services</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
         <link rel="stylesheet" href="css/bootstrap-grid.min.css">
         <link rel="stylesheet" href="css/style.css"> 
     </head>
@@ -23,7 +26,7 @@
                 <div class="desktop-version">               
                     <ul class="navigation-major navigation-major-desktop">
                         <li class="nav-home"><a href="index.html">Home</a></li>
-                        <li class="nav-about-us"><a href="#" target="_blank">About us</a></li>
+                        <li class="nav-about-us"><a href="#">About us</a></li>
                         <li class="nav-services"><a href="services.html">Services</a></li>                        
                         <li class="nav-testimonials"><a href="#">Testimonials</a></li>
                         <li class="nav-contacts"><a href="#">Contacts</a></li>  
@@ -150,6 +153,18 @@
             
             <section class="row our-works__wrapper">
                 <img src="img/orange-image.png" alt="">
+                <div class="our-works-slider">
+                    <div class="our-works-slider-single">1</div>
+                    <div class="our-works-slider-single">2</div>
+                    <div class="our-works-slider-single">3</div>
+                    <div class="our-works-slider-single">4</div>
+                    <div class="our-works-slider-single">5</div>
+                    <div class="our-works-slider-single">6</div>
+                    <div class="our-works-slider-single">7</div>
+                    <div class="our-works-slider-single">8</div>
+                    <div class="our-works-slider-single">9</div>
+                    <div class="our-works-slider-single">10</div>
+                </div>
             </section>
 
             <section class="why-choose-us__wrapper">
@@ -212,26 +227,107 @@
         </main>
 
         <footer>
-            <div class="container-fluid footer__wrapper">
+            <div class="footer__wrapper">                
                 <div class="footer-main">
-                    <div class="row footer-main-inner">
-                        <div class="col-md"></div>
-                        <div class="col-md"></div>
-                        <div class="col-md"></div>
+                    <div class="container">
+                        <div class="row footer-main-inner">
+                            <div class="col-md footer-main-logo">
+                                <div class="footer-main-logo-inner">
+                                    <img src="img/digitalidea-logo-white.png" alt="Digital Idea">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md footer-main-requisites"> 
+                                <h4>Lorem ipsum</h4>
+                                <address>
+                                    <p>Digital Idea Ltd.</p>
+                                    <p>Company No. 11111111</p>
+                                    <p>VAT No. GB110110110</p>
+                                    <p>30-33 Wenlock Road,</p>
+                                    <p>London N2 2GU,</p>
+                                    <p>United Kingdom</p>
+                                </address>
+                            </div>
+                            
+                            <div class="col-md footer-main-menu">
+                                <div class="row">
+                                    <div class="col-md-12 footer-main-menu-links">
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="#">About us</a></li>
+                                            <li><a href="services.html">Services</a></li>           
+                                            <li><a href="#">Testimonials</a></li>
+                                            <li><a href="#">Contacts</a></li>              
+                                        </ul>   
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 footer-main-menu-social">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fab fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fab fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fab fa-twitter-square"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="row footer-copyright"> 
-                    <div class="col-md">
-        
+                <div class="footer-copyright">
+                    <div class="container"> 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul>
+                                    <li>
+                                        <a href="">&copy; Copyright 2018</a>
+                                    </li>
+                                    <!-- <li>|</li>
+                                    <li>
+                                        <a href="">Digital Idea</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li>
+                                        <a href="">All Rights Reseved</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li>
+                                        <a href="">Terms and Conditions</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li>
+                                        <a href="">Privacy Policy</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li>
+                                        <a href="">Careers</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </footer>
 
-
-
-
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+        <script src="js/slider.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>
