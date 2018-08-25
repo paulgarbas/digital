@@ -925,9 +925,21 @@ header {
     align-items: center;
     justify-content: center;
     margin: 70px 0 0 0;
-    // background-image: radial-gradient(circle at center, #fb9f3d 0%, #f16529 50%, #fb9f3d 100%);
-    // height: 461px;
     width: 100%;
+    // height: 461px;
+    // background: url("../img/orange-background.png") no-repeat center center;
+    // background-size: 100%;
+
+    h2 {
+        position: absolute;
+        top: 3%;
+        right: 30%;
+        font-size: 26px;
+        color: #fff;
+        // color: black;
+        text-align: center;
+        font-weight: 400;
+    }
 
     .our-works-slider {
         position: absolute;
@@ -947,13 +959,37 @@ header {
     }
 
     .our-works-slider-single {
+        position: relative;
         width: 233px;
         background-color: #fff;
         margin: 0 25px;
         height: 100%;
+        box-shadow: 0 0 13px rgba(0,0,0,0.21);
+
+        img {
+            max-width: 100%;
+            // object-fit: cover;
+        }
+
+        .our-works-slider-single-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25%;
+            height: 52px;
+            box-shadow: 0 0 13px rgba(0,0,0,0.21);
+            background-color: #fff;
+
+            h4 {
+                font-size: 14px;
+                color: rgb(122,122,122);
+                text-align: center;
+            }
+        }
     }
     
-    img {
+    .our-works-background-image {
         width: 100%;
         max-width: 100%;
         max-height: 100%;
@@ -1291,6 +1327,12 @@ header {
         }
     }
 
+    .our-works__wrapper {
+        .our-works-background-image {
+            height: 400px;
+        }
+    }
+
     .why-choose-us-body-logo {
         margin: 0 auto 20px auto;
     }
@@ -1369,6 +1411,14 @@ header {
         }
     }
 }
+
+// @media (max-width: 479px) {
+//     .our-works__wrapper {
+//         .our-works-background-image {
+//             min-height: 400px;
+//         }
+//     }
+// }
 
 @media (max-width: 430px) {
     .logo-square-text {

@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.our-works-slider').slick({
-    //   autoplay: true
+        // autoplay: true,
         arrows: false,
         infinite: true,
         slidesToShow: 5,
@@ -23,14 +23,14 @@ $(document).ready(function(){
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 500,
                 settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1
